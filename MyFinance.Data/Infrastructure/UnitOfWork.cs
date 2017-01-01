@@ -1,4 +1,4 @@
-﻿using Data.Repository;
+﻿using MyFinance.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,45 +7,41 @@ using System.Threading.Tasks;
 
 namespace Data.Infrastructure
 {
-   public class UnitOfWork : IUnitOfWork
-    {
+	public class UnitOfWork : IUnitOfWork
+	{
 
-        private Context dataContext;
+		private Context dataContext;
 
-        IDatabaseFactory dbFactory;
-        public UnitOfWork(IDatabaseFactory dbFactory)
-        {
-            this.dbFactory = dbFactory;
-            dataContext = dbFactory.DataContext;
-            
+		IDatabaseFactory dbFactory;
+		public UnitOfWork(IDatabaseFactory dbFactory)
+		{
+			this.dbFactory = dbFactory;
+			dataContext = dbFactory.DataContext;
+		}
+		protected Context DataContext
+		{
+			get
+			{
+				return dataContext = dbFactory.DataContext;
+			}
+		}
+		public void Commit()
+		{
+			dataContext.SaveChanges();
+		}
+		public void CommitAsync()
+		{
+			dataContext.SaveChangesAsync();
+		}
+		public void Dispose()
+		{
+			dataContext.Dispose();
+		}
+		public IRepositoryBase<T> getRepository<T>() where T : class
+		{
+			IRepositoryBase<T> repo = new RepositoryBase<T>(dbFactory);
+			return repo;
+		}
 
-        }
-
-       
-        protected Context DataContext
-        {
-            get
-            {
-                return dataContext = dbFactory.DataContext;
-            }
-        }
-        public void Commit()
-        {
-            dataContext.SaveChanges();
-        }
-        public void CommitAsync()
-        {
-             dataContext.SaveChangesAsync();
-        }
-        public void Dispose()
-        {
-            dataContext.Dispose();
-        }
-        public IRepositoryBaseAsync<T> getRepository<T>() where T : class
-        {
-            IRepositoryBaseAsync<T> repo = new RepositoryBase<T>(dbFactory);
-            return repo;
-        }
-
-    }
+	}
 }

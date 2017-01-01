@@ -56,7 +56,9 @@
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IDatabaseFactory.cs" />
+    <Compile Include="Infrastructure\IRepositoryBase.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Migrations\201612261938313_v1.cs" />
     <Compile Include="Migrations\201612261938313_v1.Designer.cs">
