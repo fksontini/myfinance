@@ -49,6 +49,10 @@
       <Project>{7FDF6BB3-EC1C-4C76-82D7-4277049B496D}</Project>
       <Name>MyFinance.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyFinance.Domain\MyFinance.Domain.csproj">
+      <Project>{139951ae-3d01-4707-9fbe-1868e2f2f6c8}</Project>
+      <Name>MyFinance.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
