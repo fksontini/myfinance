@@ -1,7 +1,4 @@
-﻿
-
-
-using Data.Infrastructure;
+﻿using Data.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +28,7 @@ namespace MyFinance.ServicePattern
         {
             ////_repository.Add(entity);
             utwk.getRepository<TEntity>().Add(entity);
-            
+
         }
 
         public virtual void Update(TEntity entity)
@@ -62,13 +59,13 @@ namespace MyFinance.ServicePattern
         {
             return utwk.getRepository<TEntity>().GetAll();
             //return _repository.GetById(id);
-          //  return utwk.getRepository<TEntity>().GetById(id);
+            //  return utwk.getRepository<TEntity>().GetById(id);
         }
 
         public virtual IEnumerable<TEntity> GetMany(Expression<Func<TEntity, bool>> filter = null, Expression<Func<TEntity, bool>> orderBy = null)
         {
             //  return _repository.GetAll();
-            return utwk.getRepository<TEntity>().GetMany(filter,orderBy);
+            return utwk.getRepository<TEntity>().GetMany(filter, orderBy);
         }
 
         public virtual TEntity Get(Expression<Func<TEntity, bool>> where)
@@ -78,7 +75,7 @@ namespace MyFinance.ServicePattern
         }
 
 
-       
+
         public void Commit()
         {
             try

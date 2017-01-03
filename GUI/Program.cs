@@ -75,9 +75,9 @@ namespace GUI
             //Console.ReadLine();
             //uw.Dispose();
 
-
+            // create a category to set the product categorie.
             Category c = new Category();
-
+            //category ID
             c.CategoryId = 10;
             Product pu = new Product();
             pu.Name = "Unit of work ";
@@ -88,6 +88,16 @@ namespace GUI
             ServiceProduit sp = new ServiceProduit();
             sp.Add(pu);
             sp.Commit();
+var Products= sp.ProductByCategoryId(10);
+            foreach(var Px in Products)
+            {
+                Console.WriteLine(Px.Name );
+
+
+            }
+            Console.ReadKey();
+
+            sp.Dispose();
         }
     }
 }

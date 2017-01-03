@@ -14,6 +14,9 @@ namespace MyFinance.Domain
         public string NameCategory { get; set; }
         public ICollection<Product> product { get; set; }
 
-     
+        public static implicit operator Category(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
