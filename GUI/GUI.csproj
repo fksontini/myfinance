@@ -83,6 +83,14 @@
       <Project>{139951ae-3d01-4707-9fbe-1868e2f2f6c8}</Project>
       <Name>MyFinance.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyFinance.ServicePattern\MyFinance.ServicePattern.csproj">
+      <Project>{26d75c65-dadc-44a2-a5c0-7294bffa7243}</Project>
+      <Name>MyFinance.ServicePattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyFinance.Service\MyFinance.Service.csproj">
+      <Project>{afc0d1ee-ea7a-4760-b2da-80b214e66b8a}</Project>
+      <Name>MyFinance.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

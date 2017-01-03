@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceProduit.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyFinance.Data\MyFinance.Data.csproj">
