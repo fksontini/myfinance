@@ -46,31 +46,47 @@ namespace GUI
             //  Console.WriteLine("database created");
             //  Console.ReadLine();
 
-           
+
             Category c = new Category();
-            c.NameCategory = "category1 with design pattern";
-
+           
+            c.CategoryId = 10;
             Product p = new Product();
-            p.Name = "produit  with design";
-            p.Description = "desc prod with design pattern";
-            p.fullprice = new FullPrice { Price = 3, Quantity = 2 } ;
+            p.Name = "produit  1";
+            p.Description = "desc prod wi";
+            p.fullprice = new FullPrice { Price = 2, Quantity = 2};
             p.DateProd = DateTime.Now;
+            p.CategoryFK = 10;
 
+            Product p2 = new Product();
+            p.Name = "produit  2";
+            p.Description = "desc prod wi";
+            p.fullprice = new FullPrice { Price = 3, Quantity = 2 };
+            p.DateProd = DateTime.Now;
+ 
+            p.CategoryFK = 10;
+            List<Product> resultat = new List<Product>();
             DatabaseFactory dbf = new DatabaseFactory();
+            ProductRepository PR = new ProductRepository(dbf);
+
             UnitOfWork uw = new UnitOfWork(dbf);
-
-            uw.getRepository<Category>().Add(c);
-            uw.getRepository<Product>().Add(p);
+            PR.Add(p);
             uw.Commit();
-            uw.Dispose();
+            //PR.Add(p2);
+            // uw.Commit();
+            // uw.getRepository<Category>().Add(c);
+            // uw.getRepository<Product>().Add(p);
+            var resultat1 = PR.filterbycategory(c);
 
 
-
-
-
+        
+            Console.WriteLine("show the table");
+            foreach (Product px in resultat1)
+            {
+                Console.WriteLine(px.Name);
+            }
             Console.WriteLine("database created with design pattern");
-            Console.ReadLine();
-
+            //Console.ReadLine();
+            uw.Dispose();
         }
     }
 }
